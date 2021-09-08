@@ -5,11 +5,11 @@ import {
     PRODUCT_LIST_FAIL
 } from '../constants/productConstants';
 
-const listProducts =()=> async(dispatch)=>{
+export const listProducts =()=> async(dispatch)=>{
     try{
         dispatch({type: PRODUCT_LIST_REQUEST})
-        const (data) = await axios.get('api/products/')
-    }catch (error){
+        const {data} = await axios.get('api/products/')
+    
         dispatch({
             type:PRODUCT_LIST_SUCCESS,
             payload: data
